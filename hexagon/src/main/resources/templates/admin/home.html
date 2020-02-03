@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <!-- Favicons -->
+     <link th:href="@{/images/hacker.png}" rel="icon">
+     <link th:href="@{/images/hacker.png}" rel="apple-touch-icon">
+
+             <!-- Libraries CSS Files -->
+             <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>
+
+</head>
+<body th:style="'background: url(/images/bg.jpg); no-repeat center center fixed;'">
+
+<main >
+    <header class="top_header">
+
+        <div class="container">
+        <div class="row">
+        <div class="row">
+            <div class="col-sm-3">                    
+            </div>
+                <div class="col-sm-6">
+                    <br><br><br>
+                    <img th:src="@{/images/hexagonlogo.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                </div>
+
+            <div class="col-sm-3">                    
+            </div>
+        </div>
+        <div class="row"><div class="col-sm-12"><br><br><br></div></div>
+        </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="login-logo">
+                        <img th:src="@{/images/hexagon_vector_logo.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">  
+                    <br><br>
+                      <a href="/logout">
+                      <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-log-out"></span> Log out
+                      </button>
+                      </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="login-form">
+        <form autocomplete="off" action="#" th:action="@{/admin/registrationEmployee}"
+              th:object="${user}" method="post" class="form-horizontal"
+              role="form">
+            <div class="form-group">
+                    <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                           class="validation-message"></label>
+                    <input type="text" th:field="*{name}" placeholder="Name"
+                           class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                    <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                           class="validation-message"></label>
+                    <input type="text" th:field="*{lastName}"
+                           placeholder="Last Name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                    <input type="text" th:field="*{email}" placeholder="Email"
+                           class="form-control"/> <label
+                        th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                        class="validation-message"></label>
+            </div>
+            <div class="form-group">
+                    <input type="password" th:field="*{password}"
+                           placeholder="Password" class="form-control"/> <label
+                        th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                        class="validation-message">
+                    </label>
+            </div>
+
+            <div class="form-group">
+                    <button type="submit" class="login-btn">Register User</button>
+            </div>
+
+            <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+        </form>
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">                   
+            </div>
+            <div class="col-sm-6">
+                <div class="brand_name text-center">
+                    <h2><ul>Employee List</ul></h2>
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+            </div>
+        </div> 
+    </div>
+    <br>
+
+</section>
+</main>
+
+</body>
+</html>

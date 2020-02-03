@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/hexagon.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Libraries CSS Files -->
+        <!-- <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Favicons -->
+    <link th:href="@{/images/hacker.png}" rel="icon">
+    <link th:href="@{/images/hacker.png}" rel="apple-touch-icon">
+
+
+</head>
+
+<body th:style="'background: url(/images/bg.jpg); no-repeat center center cover fixed;'">
+    <main >
+        <header class="top_header">
+            
+            <div class="container">
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-3">    
+                                <div class="menu_icon">
+                                    
+                                    <a href="/user/profile">
+                                        <span class="hb hb-sm inv">
+                                            <i class="fa fa-bars"></i>
+                                        </span>
+                                    </a>
+                                </div>                
+                            </div>
+                            <div class="col-sm-6">
+                                <br><br>
+                                <a href="/checkhome">
+                                <img th:src="@{/images/hexagonlogo.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                                </a>
+                            </div>
+                            <div class="col-sm-2">  
+                                <div class="user_profile pull-right">
+                                    
+                                    <a href="/user/submitDemo">
+      
+                                    <span class="hb hb-sm inv">
+                                        <i class="fa  fa-upload"></i>
+                                    </span>
+
+                                    </a>                     
+                                    
+                                </div>          
+                            </div>
+                            <div class="col-sm-1">  
+                                <br><br>
+                                  <a href="/logout">
+                                  <button type="button" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                                  </button>
+                                  </a>
+                            </div>
+
+                        </div>
+                        <div class="row"><div class="col-sm-12"><br><br></div></div>
+                    </div>
+                
+
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="login-logo">
+                            
+                            <img th:src="@{/images/profilepic_big.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">                    
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="brand_name text-center">
+                            <h2>WELCOME HEXAGONIAN</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">                    
+                    </div>
+                    
+                </div> 
+                    <div class="row">
+                        <div class="col-sm-3">                   
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="brand_name text-center">
+                                <h2><ul>MY DEMOS</ul></h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">                    
+                        </div>
+                    </div> 
+    
+
+                    <div class="details_ection" th:each="demofile : ${demofiles}">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="details_title">
+                                    <div class="titel-icon pull-left">
+                                        <a th:href="@{/download/{id}(id=${demofile.demofilesid})}">
+                                            <span class="hb hb-sm inv">
+                                                <i class="fa fa-play play-btn"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="title-txt position-r pull-right">
+                                        <p class="title-sub" th:text="${demofile.filename}"></p>
+                                        <p class="date" th:text="${demofile.createdtime}"></p>
+                                        <p class="music pull-right">
+                                            <img th:src="@{/images/headphones.png}" alt="">
+                                            <span class="music_txt" th:text="${demofile.demofilesid}"></span>
+                                        </p>
+                                        <h6 class="buttom-txt" th:text="${'Status: '+demofile.status}"></h6>
+                                    </div>
+                                </div>
+                                <div class="details_description" style="color:white" th:text="${'Description: '+demofile.filedesc}"></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                
+            </div>
+        </section>
+    
+    </main>
+</body>
+</html>

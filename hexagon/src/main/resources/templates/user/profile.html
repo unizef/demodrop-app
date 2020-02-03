@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Drop Demo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/hexagon.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Libraries CSS Files -->
+        <!-- <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Favicons -->
+    <link th:href="@{/images/hacker.png}" rel="icon">
+    <link th:href="@{/images/hacker.png}" rel="apple-touch-icon">
+
+
+</head>
+
+<body th:style="'background: url(/images/bg.jpg); no-repeat center center fixed;'">
+    <main >
+        <header class="top_header">
+            
+            <div class="container">
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-3">    
+                                <div class="menu_icon">
+                                    <a href="/user/profile">
+                                        <span class="hb hb-sm inv">
+                                            <i class="fa fa-bars"></i>
+                                        </span>
+                                    </a>
+                                </div>                
+                            </div>
+                            <div class="col-sm-6">
+                                <br><br>
+                                <a href="/checkhome">
+                                <img th:src="@{/images/hexagonlogo.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                            </a>
+                            </div>
+                            <div class="col-sm-2">  
+                                <div class="user_profile pull-right">
+                                    <a href="/user/submitDemo">
+                                    <span class="hb hb-sm inv">
+                                        <i class="fa  fa-upload"></i>
+                                    </span>
+                                    </a>                        
+                                </div>          
+                            </div>
+
+                            <div class="col-sm-1">  
+                                <br><br>
+                                  <a href="/logout">
+                                  <button type="button" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                                  </button>
+                                  </a>
+                            </div>
+                        </div>
+                <div class="row"><div class="col-sm-12"><br><br></div></div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="section_titel text-center">
+                            <h2>My Profile</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="login-logo">
+                            
+                            <img th:src="@{/images/profilepic_big.png}" class="img-responsive center-block" width="150" height="300" alt="Logo"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-details">
+                            <h4 th:utext="${firstname +' '+ lastname}"></h4>
+                            <p>Dalerveen the netherlands</p>
+                            <ul>
+                                <li><i class="fa fa-headphones"></i> <span>2</span></li>
+                                <li><i class="fa fa-heart"></i></li>
+                                <li><i class="fa fa-at"></i></li>
+                                <li><i class="fa fa-facebook-official"></i></li>
+                                <li><i class="fa fa-instagram"></i></li>
+                                <li><i class="fa fa-edit"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="profile-txt">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget turpis molestie, consequat urna in, consequat magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum blandit ligula nisl, sit amet tincidunt sem dapibus et. <br><br>Praesent id magna urna. Nam maximus eros aliquam justo convallis, eget tristique purus venenatis. Donec in massa eu dui egestas egestas. Maecenas eget nisl vehicula, sollicitudin est sed, consequat sem. Nunc nisl arcu, imperdiet id sollicitudin a, rhoncus sed nisl. Cras egestas tortor nec varius suscipit. Phasellus quis eros tempor, dignissim ex ac, faucibus risus.</p>
+                        </div>
+                        <div class="profile-list">
+                            <ul>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-3">FIRSTNAME</div>
+                                        <div class="col-sm-9" th:utext="${firstname}"></div>
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="row">
+                                        <div class="col-sm-3">LASTNAME</div>
+                                        <div class="col-sm-9" th:utext="${lastname}">Diablo</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-3">E-MAIL</div>
+                                        <div class="col-sm-9" th:utext="${email}"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-3">COUNTRY</div>
+                                        <div class="col-sm-9">The Netherlands</div>
+                                    </div>
+                                </li>                            
+                            </ul>
+                        </div>
+                        <div class="empty-50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </main>
+</body>
+</html>
